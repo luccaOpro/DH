@@ -19,13 +19,30 @@ deberá retornar null.Para que todo funcione tenés que agregar el código que e
 
 
 let autos = require('./autos/autos');
-
 let concesionaria = {
-    autos,
+    autos: autos,
 
-    autos.filter(function(e) {
-        return
-    })
+    buscarAuto: function(patente){
+        for(let i = 0; i < autos.length; i++){
+            if(autos[i].patente == patente){
+                codigo = i;
+                return autos[i];
+            }else{
+                return null;
+            }
+        }
 
+    },
+    venderAuto: function(patente){
+       if(this.buscarAuto(patente) != null){
+           this.buscarAuto(patente).vendido = true;
+       }
+    },
+    autosParaLaVenta: function(){
+        for( i = 0; i < autos.length; i++){
+           
+    }
 }
-}
+
+//console.log(concesionaria.venderAuto("APL123"));
+console.log(concesionaria.autosParaLaVenta());
