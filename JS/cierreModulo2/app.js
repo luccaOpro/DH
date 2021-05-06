@@ -16,8 +16,7 @@ tener un atributo llamado autos que contenga la lista de automóviles importada 
 por parámetro la patente y devuelva el auto al cual le corresponde.En caso de no encontrar el mismo,
 deberá retornar null.Para que todo funcione tenés que agregar el código que escribiste en el ejercicio anterior. */
 
-
-
+var buscarAuto = [];
 let autos = require('./autos/autos');
 let concesionaria = {
     autos: autos,
@@ -25,24 +24,35 @@ let concesionaria = {
     buscarAuto: function(patente){
         for(let i = 0; i < autos.length; i++){
             if(autos[i].patente == patente){
-                codigo = i;
-                return autos[i];
+                buscarAuto = autos[i];
             }else{
-                return null;
+                buscarAuto = null;
             }
+            
         }
-
+        return buscarAuto
     },
     venderAuto: function(patente){
        if(this.buscarAuto(patente) != null){
            this.buscarAuto(patente).vendido = true;
        }
     },
-    autosParaLaVenta: function(){
-        for( i = 0; i < autos.length; i++){
-           
+    autosParaLaVenta: function autosParaLaVenta(){
+         let paraLaVenta = this.autos.filter(function(auto){
+            return auto.vendido == false 
+        })
+           return paraLaVenta;
+    },
+    autosNuevos: function autosNuevos(){
+        let autosPVenta = this.autosParaLaVenta();
+        let autosNuevos = autosPVenta.filter(function(autosPVenta){
+            return autosPVenta.km <= 100;
+        })
+            return autosNuevos;
     }
 }
 
-//console.log(concesionaria.venderAuto("APL123"));
-console.log(concesionaria.autosParaLaVenta());
+
+//console.log(concesionaria.venderAuto("JJK116"));
+
+console.log(concesionaria.autosNuevos());
