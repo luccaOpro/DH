@@ -21,38 +21,56 @@ let autos = require('./autos/autos');
 let concesionaria = {
     autos: autos,
 
-    buscarAuto: function(patente){
-        for(let i = 0; i < autos.length; i++){
-            if(autos[i].patente == patente){
+    buscarAuto: function(patente) {
+        for (let i = 0; i < autos.length; i++) {
+            if (autos[i].patente == patente) {
                 buscarAuto = autos[i];
-            }else{
+            } else {
                 buscarAuto = null;
             }
-            
+
         }
         return buscarAuto
     },
-    venderAuto: function(patente){
-       if(this.buscarAuto(patente) != null){
-           this.buscarAuto(patente).vendido = true;
-       }
+    venderAuto: function(patente) {
+        if (this.buscarAuto(patente) != null) {
+            this.buscarAuto(patente).vendido = true;
+        }
     },
-    autosParaLaVenta: function autosParaLaVenta(){
-         let paraLaVenta = this.autos.filter(function(auto){
-            return auto.vendido == false 
+    autosParaLaVenta: function autosParaLaVenta() {
+        let paraLaVenta = this.autos.filter(function(auto) {
+            return auto.vendido == false
         })
-           return paraLaVenta;
+        return paraLaVenta;
     },
-    autosNuevos: function autosNuevos(){
+    autosNuevos: function autosNuevos() {
         let autosPVenta = this.autosParaLaVenta();
-        let autosNuevos = autosPVenta.filter(function(autosPVenta){
+        let autosNuevos = autosPVenta.filter(function(autosPVenta) {
             return autosPVenta.km <= 100;
         })
-            return autosNuevos;
+        return autosNuevos;
+    },
+    listaDeVentas: function listaDeVentas() {
+        let autosVendidos = this.autos.filter(function(auto) {
+            return auto.vendido == true;
+        })
+        let ganancias = []
+        autosVendidos.forEach(function(precio) {
+            ganancias.push(precio.precio)
+        })
+        return ganancias;
+    },
+    totalDeVentas: function totalDeVentas() {
+        concesionaria.listaDeVentas();
+        let total = this.ganancias(reduce);
+        return total;
     }
 }
 
 
 //console.log(concesionaria.venderAuto("JJK116"));
 
-console.log(concesionaria.autosNuevos());
+//console.log(concesionaria.autosNuevos());
+//console.log(concesionaria.autosParaLaVenta());
+//console.log(concesionaria.listaDeVentas())
+console.log(concesionaria.totalDeVentas())
