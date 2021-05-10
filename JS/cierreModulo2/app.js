@@ -16,7 +16,7 @@ tener un atributo llamado autos que contenga la lista de automóviles importada 
 por parámetro la patente y devuelva el auto al cual le corresponde.En caso de no encontrar el mismo,
 deberá retornar null.Para que todo funcione tenés que agregar el código que escribiste en el ejercicio anterior. */
 
-var total 
+var total
 var ganancias
 var buscarAuto = [];
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -63,7 +63,7 @@ let concesionaria = {
         return ganancias;
     },
     totalDeVentas: function totalDeVentas() {
-         ganancias = concesionaria.listaDeVentas();
+        ganancias = concesionaria.listaDeVentas();
         if (ganancias != 0) {
             total = ganancias.reduce(reducer);
         } else {
@@ -71,29 +71,27 @@ let concesionaria = {
         }
         return total
     },
-    puedeComprar: function puedeComprar(auto, persona){
-        if(persona.capacidadDePagoTotal >= auto.precio && persona.capacidadDePagoEnCuotas >= auto.precio / auto.cuotas ){
+    puedeComprar: function puedeComprar(auto, persona) {
+        if (persona.capacidadDePagoTotal >= auto.precio && persona.capacidadDePagoEnCuotas >= auto.precio / auto.cuotas) {
             return true;
-        }else{
+        } else {
             return false;
         }
     },
-    autosQuePuedeComprar: function(persona){
+    autosQuePuedeComprar: function (persona) {
 
         let autosParaVender = this.autosParaLaVenta();
-        let autosPosiblesDeCompra=[];
-     
-        for (let i=0;i<autosParaVender.length;i++){
-          
-          if(this.puedeComprar(autosParaVender[i],persona)==true){
-              autosPosiblesDeCompra.push(autosParaVender[i]);
-          }
-     
+        let autosPosiblesDeCompra = [];
+
+        for (let i = 0; i < autosParaVender.length; i++) {
+
+            if (this.puedeComprar(autosParaVender[i], persona) == true) {
+                autosPosiblesDeCompra.push(autosParaVender[i]);
+            }
         }
-     
-          return autosPosiblesDeCompra;
-     
-      }
+        return autosPosiblesDeCompra;
+
+    }
 };
 
 
