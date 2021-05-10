@@ -16,56 +16,85 @@ tener un atributo llamado autos que contenga la lista de automóviles importada 
 por parámetro la patente y devuelva el auto al cual le corresponde.En caso de no encontrar el mismo,
 deberá retornar null.Para que todo funcione tenés que agregar el código que escribiste en el ejercicio anterior. */
 
+var total 
+var ganancias
 var buscarAuto = [];
-let autos = require('./autos/autos');
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+let autos = require("./autos/autos");
 let concesionaria = {
     autos: autos,
 
-    buscarAuto: function(patente) {
+    buscarAuto: function (patente) {
         for (let i = 0; i < autos.length; i++) {
             if (autos[i].patente == patente) {
                 buscarAuto = autos[i];
             } else {
                 buscarAuto = null;
             }
-
         }
-        return buscarAuto
+        return buscarAuto;
     },
-    venderAuto: function(patente) {
+    venderAuto: function (patente) {
         if (this.buscarAuto(patente) != null) {
             this.buscarAuto(patente).vendido = true;
         }
     },
     autosParaLaVenta: function autosParaLaVenta() {
-        let paraLaVenta = this.autos.filter(function(auto) {
-            return auto.vendido == false
-        })
+        let paraLaVenta = this.autos.filter(function (auto) {
+            return auto.vendido == false;
+        });
         return paraLaVenta;
     },
     autosNuevos: function autosNuevos() {
         let autosPVenta = this.autosParaLaVenta();
-        let autosNuevos = autosPVenta.filter(function(autosPVenta) {
+        let autosNuevos = autosPVenta.filter(function (autosPVenta) {
             return autosPVenta.km <= 100;
-        })
+        });
         return autosNuevos;
     },
     listaDeVentas: function listaDeVentas() {
-        let autosVendidos = this.autos.filter(function(auto) {
+        let autosVendidos = this.autos.filter(function (auto) {
             return auto.vendido == true;
-        })
-        let ganancias = []
-        autosVendidos.forEach(function(precio) {
-            ganancias.push(precio.precio)
-        })
+        });
+        let ganancias = [0];
+        autosVendidos.forEach(function (precio) {
+            ganancias.push(precio.precio);
+        });
         return ganancias;
     },
     totalDeVentas: function totalDeVentas() {
-        concesionaria.listaDeVentas();
-        let total = this.ganancias(reduce);
-        return total;
-    }
-}
+         ganancias = concesionaria.listaDeVentas();
+        if (ganancias != 0) {
+            total = ganancias.reduce(reducer);
+        } else {
+            total = 0
+        }
+        return total
+    },
+    puedeComprar: function puedeComprar(auto, persona){
+        if(persona.capacidadDePagoTotal >= auto.precio && persona.capacidadDePagoEnCuotas >= auto.precio / auto.cuotas ){
+            return true;
+        }else{
+            return false;
+        }
+    },
+    autosQuePuedeComprar: function(persona){
+
+        let autosParaVender = this.autosParaLaVenta();
+        let autosPosiblesDeCompra=[];
+     
+        for (let i=0;i<autosParaVender.length;i++){
+          
+          if(this.puedeComprar(autosParaVender[i],persona)==true){
+              autosPosiblesDeCompra.push(autosParaVender[i]);
+          }
+     
+        }
+     
+          return autosPosiblesDeCompra;
+     
+      }
+};
 
 
 //console.log(concesionaria.venderAuto("JJK116"));
@@ -73,4 +102,20 @@ let concesionaria = {
 //console.log(concesionaria.autosNuevos());
 //console.log(concesionaria.autosParaLaVenta());
 //console.log(concesionaria.listaDeVentas())
-console.log(concesionaria.totalDeVentas())
+//console.log(concesionaria.totalDeVentas())
+/* console.log(concesionaria.puedeComprar({
+    marca: "Toyota",
+    modelo: "Corolla",
+    precio: 100000,
+    km: 0,
+    color: "Blanco",
+    cuotas: 14,
+    anio: 2019,
+    patente: "JJK116",
+    vendido: false,
+} ,{
+    nombre: 'Juan',
+    capacidadDePagoEnCuotas: 20000,
+    capacidadDePagoTotal: 100000
+    }))
+ */
