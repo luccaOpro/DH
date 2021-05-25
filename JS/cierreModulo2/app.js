@@ -15,7 +15,7 @@ tener un atributo llamado autos que contenga la lista de automóviles importada 
 /* Ahora que la concesionaria tiene los autos, es posible crear la funcionalidad buscarAuto que reciba
 por parámetro la patente y devuelva el auto al cual le corresponde.En caso de no encontrar el mismo,
 deberá retornar null.Para que todo funcione tenés que agregar el código que escribiste en el ejercicio anterior. */
-
+//holaa
 var total
 var ganancias
 var buscarAuto = [];
