@@ -12,81 +12,89 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/c8c4c3d415.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-  <header>
-    
-    <p id="logo">
-      <img src='/public/img/logo-mercado-liebre.svg' height="110" width="200">
-    </p>
-    
+  <header class="main-header">
+    <div class="main-header-top-bar">
+      <img src='/public/img/logo-mercado-liebre.svg' class="logo">
+      <h2 class="copy-header">
+        <i class="fas fa-hand-holding-usd">
+        </i>Comprá en cuotas y sin tarjeta de crédito
+      </h2>
+    </div>
+
     <div>
       <p>
-        <div class="flexsearch">
-          <div class="flexsearch--wrapper">
-            <form class="flexsearch--form" action="#" method="post">
-              <div class="flexsearch--input-wrapper">
-                <input class="flexsearch--input" type="search" placeholder="Buscar productos, marcas">
-              </div>
-              <input class="flexsearch--submit" type="submit" value="&#10140;"/>
-            </form>
-          </div>
+      <div class="flexsearch">
+        <div class="flexsearch--wrapper">
+          <form class="flexsearch--form" action="#" method="post">
+            <div class="flexsearch--input-wrapper">
+              <input class="flexsearch--input" type="search" placeholder="Buscar productos, marcas">
+            </div>
+            <input class="flexsearch--submit" type="submit" value="&#10140;" />
+          </form>
+        </div>
       </div>
-      </p>
-      <p id="cuotas">
-      <label> <strong><i class="fas fa-hand-holding-usd"></i>Comprá en cuotas y sin tarjeta de crédito</strong> </label>
-    </p>
-  
-      <ol>
-        <dt>Ofertas</dt>
-        <dt>Tiendas Oficiales</dt>
-        <dt>Vender</dt>
-        <dt>Ayuda</dt>
-      </ol>
-      <ol>
-        <dt>Creá tu cuenta<i class="far fa-address-card"></i></dt>
-        <dt>Ingresá<i class="fas fa-sign-out-alt"></i></dt>
-        <dt>Mis compras<i class="fas fa-shopping-basket"></i></dt>
-      </ol>
     </div>
+
+    <a href="#" class="hamburguer-buttom"></a>
+
+
+    <nav class="main-header-bottom-bar">
+      <ul class="left-navbar">
+        <li><a href="#">Ofertas</a></li>
+        <li><a href="#">Tiendas oficiales</a></li>
+        <li><a href="#">Vender</a></li>
+        <li><a href="#">Ayuda</a></li>
+      </ul>
+
+      <ul class="rigth-navbar">
+        <li><a href="#">Creá tu cuenta<i class="far fa-address-card"></i></a></li>
+        <li><a href="#">Ingresá<i class="fas fa-sign-out-alt"></i></a></li>
+        <li><a href="#">Mis compras<i class="fas fa-shopping-basket"></i></a></li>
+      </ul>
+    </nav>
+    
   </header>
 
   <main>
-<h3>Basado en tu ultima busqueda</h3>
+    <h3>Basado en tu ultima busqueda</h3>
 
-<img class="productos" src='/public/img/img-cafetera-moulinex.jpg'>
-<p>$6.770</p>
-<p>40% off</p>
-<h4>Cafetera Moulinex</h4>
-<img class="productos" src='/public/img/img-macbook-pro-2019.jpg'>
-<p>$230.000</p>
-<p>20% off</p>
-<h4>Macbook Pro</h4>
-<img class="productos" src='/public/img/img-samsung-galaxy-s10.jpg'>
-<p>$150.000</p>
-<p>10% off</p>
-<h4>Samsung Galaxy S10</h4>
-<h3>Sección Ofertas</h3>
-<img class="productos" src='/public/img/img-tv-samsung-smart.jpg'>
-<p>$90.000</p>
-<p>25% off</p>
-<h4>Smart Tv Samsung</h4>
-<img class="productos" src='/public/img/img-cafetera-moulinex.jpg'>
-<p>$6.770</p>
-<p>40% off</p>
-<h4>Cafetera Moulinex</h4>
+    <img class="productos" src='/public/img/img-cafetera-moulinex.jpg'>
+    <p>$6.770</p>
+    <p>40% off</p>
+    <h4>Cafetera Moulinex</h4>
+    <img class="productos" src='/public/img/img-macbook-pro-2019.jpg'>
+    <p>$230.000</p>
+    <p>20% off</p>
+    <h4>Macbook Pro</h4>
+    <img class="productos" src='/public/img/img-samsung-galaxy-s10.jpg'>
+    <p>$150.000</p>
+    <p>10% off</p>
+    <h4>Samsung Galaxy S10</h4>
+    <h3>Sección Ofertas</h3>
+    <img class="productos" src='/public/img/img-tv-samsung-smart.jpg'>
+    <p>$90.000</p>
+    <p>25% off</p>
+    <h4>Smart Tv Samsung</h4>
+    <img class="productos" src='/public/img/img-cafetera-moulinex.jpg'>
+    <p>$6.770</p>
+    <p>40% off</p>
+    <h4>Cafetera Moulinex</h4>
   </main>
 
   <footer>
 
     <div class="d">
-     <label ><i id="pu" class="fas fa-credit-card"></i></label>
-     <p><strong>Pagá con tarjeta o en efectivo</strong></p>
-     <p class="p">Con MercadoLiebreCash tenés cuotas sin<br>
+      <label><i id="pu" class="fas fa-credit-card"></i></label>
+      <p><strong>Pagá con tarjeta o en efectivo</strong></p>
+      <p class="p">Con MercadoLiebreCash tenés cuotas sin<br>
         interés con tarjeta o efectivo en puntos de<br>pago. ¡Y siempre es seguro!</p>
     </div>
   </footer>
 </body>
+
 </html>

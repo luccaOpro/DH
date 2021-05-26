@@ -1,52 +1,26 @@
-#button {
-  background-color: whitesmoke;
-  color: rgb(255, 255, 255);
-  width: 34px;
-  height: 24px;
-  cursor: pointer;
+*{
+  box-sizing: border-box;
 }
 
-#button:hover {
-  background-color: rgb(201, 201, 201);
-  color: red;
-}
-#button:active {
-  background-color: #ecd045;
-}
-#logo {
-    text-align: center;
-}
-#parrafo {
-  font-size: 26px;
+body{
+  font-family: 'Roboto', sans-serif;
 }
 
-input:focus {
-  width: 20px;
-  height: 20px;
+.main-header{
+  background-color: #eac926;
+  padding: 20px;
 }
-header {
-    background-color: #eac926 ;
-    width: 100vw;
-  
+
+.logo{
+  width: 250px;
 }
-.flexsearch{
-    text-align: center;
-}
-body {
-  font-family: "Roboto", sans-serif;
-}
-footer {
+
+.copy-header{
+  font-weight: 400;
   text-align: center;
 }
-#pu {
-  padding-top: 70px;
-  color: blue;
-  font-size: 2em;
-  margin-bottom: 10px;
-}
-.productos{
-    width:300px;
-}
-#cuotas{
-    text-align: center;
+.main-header-bottom-bar ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
